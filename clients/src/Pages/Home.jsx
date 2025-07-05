@@ -8,6 +8,7 @@ import UserNavbar from '../Components/UserNavbar';
 const Container = styled.div`
   width: 100vw;
   min-height: 100vh;
+  overflow: auto;
   background: ${({ theme }) => theme.cardBg};
   color: ${({ theme }) => theme.text};
   font-family: 'Inter', sans-serif;
