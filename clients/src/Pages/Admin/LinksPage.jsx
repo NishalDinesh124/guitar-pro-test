@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 import AdminNavbar from '../../Components/AdminNavbar';
 import { GiGuitar } from "react-icons/gi";
 import axios from 'axios';
-import { getAuth, signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { addLinkRoute, addUserRoute, deleteLinkRoute, getLinksRoute, updateLinkRoute } from '../../Utils/APIRoutes';
 import { IoAdd, IoClose } from 'react-icons/io5';
@@ -246,7 +245,6 @@ export default function LinksPage({ toggleTheme, themeMode }) {
   const [newUserPassword, setNewUserPassword] = useState('');
 
   const navigate = useNavigate();
-  const auth = getAuth();
 
   const fetchLinks = async () => {
     const res = await axios.get(getLinksRoute);
