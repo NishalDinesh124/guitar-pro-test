@@ -44,6 +44,7 @@ const FullPageSpinner = styled.div`
 
 const PlayerWrapper = styled.div`
   display: flex;
+  overflow: auto;
   flex-direction: column;
   color: ${({ theme }) => theme.text};
   width: 100vw;
