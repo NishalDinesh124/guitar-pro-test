@@ -6,7 +6,6 @@ import { IoHome, IoMoon, IoSunny } from "react-icons/io5";
 import { MdLoop } from "react-icons/md"
 import { getDriveFileRoute, getPageDetailsRoute } from '../Utils/APIRoutes';
 import axios from 'axios';
-import UserNavbar from '../Components/UserNavbar';
 
 /// === STYLED COMPONENTS === ///
 
@@ -168,15 +167,17 @@ const Controls = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 10px;
   padding: 10px;
-  background: ${({ theme }) => theme.playerBg};
+ 
   z-index: 99;
 
   @media (max-width: 768px) {
+    background: ${({ theme }) => theme.playerBg};
     position: sticky;
     bottom: 0;
-    padding: 20px 20px;
+    padding: 8px 20px;
     gap: 8px;
     align-items: center;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
@@ -548,7 +549,7 @@ UserId :${userId} `;
     setIsPlaying(false);
     const player = apiRef.current?.player;
     if (!player) return;
-     player.stop();
+    player.stop();
 
   }
 
@@ -593,9 +594,27 @@ UserId :${userId} `;
         </Sidebar>
       </ResponsiveLayout>
 
+      <div style={{ textAlign: 'center' }}>
+        <p>Need help? <button
+          style={{
+            padding: '10px 20px',
+            background: 'transparent',
+            textDecoration: 'underline',
+            backgroundColor: '#fcb036',
+            color: '#121212',
+            border: 'none',
+            borderRadius: '20px',
+            cursor: 'pointer'
+          }}
+          onClick={() => setShowInstructions(true)}
+        >
+          View Instructions
+        </button></p>
 
-      <TimeDisplay>{timeDisplay}</TimeDisplay>
+      </div>
+
       <Controls>
+        <TimeDisplay>{timeDisplay}</TimeDisplay>
         <ButtonsSection>
           <button onClick={handleToggle}>
             {isPlaying ? <FaPause /> : <FaPlay />}
@@ -668,24 +687,7 @@ UserId :${userId} `;
         </label>
 
       </Controls>
-      <div style={{ textAlign: 'center', marginTop: '20px' }}>
-        <p>Need help? <button
-          style={{
-            padding: '10px 20px',
-            background: 'transparent',
-            textDecoration: 'underline',
-            backgroundColor: '#fcb036',
-            color: '#121212',
-            border: 'none',
-            borderRadius: '20px',
-            cursor: 'pointer'
-          }}
-          onClick={() => setShowInstructions(true)}
-        >
-          View Instructions
-        </button></p>
 
-      </div>
 
       <WhatsAppButton
         href={whatsAppLink}

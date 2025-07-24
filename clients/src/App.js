@@ -7,7 +7,6 @@ import ViewPages from './Pages/Admin/viewPages';
 import UserLoginPage from './Auth/UserLogin';
 import UserHome from './Pages/Home';
 import Player from './Pages/Player';
-
 import { ToastContainer } from 'react-toastify';
 import styled, { ThemeProvider } from 'styled-components';
 
@@ -36,9 +35,10 @@ function App() {
               element={<LinksPage toggleTheme={toggleTheme} themeMode={themeMode} />}
             />
             <Route path="/admin/all-users/:pageId" element={<AdminUserAccess toggleTheme={toggleTheme} themeMode={themeMode} />} />
-             <Route path="/" element={<UserHome toggleTheme={toggleTheme} themeMode={themeMode} />} />
+            <Route path="/" element={<UserHome toggleTheme={toggleTheme} themeMode={themeMode} />} />
             <Route path="/user-login" element={<UserLoginPage toggleTheme={toggleTheme} themeMode={themeMode} />} />
             <Route path="/player/:id" element={<Player toggleTheme={toggleTheme} themeMode={themeMode} />} />
+            
 
           </Routes>
         </Router>
@@ -53,7 +53,6 @@ const Container = styled.div`
   display: flex;
   overflow: auto;
   width: 100vw;
-  min-height: 100vh;
   font-family: Inter;
   background-color: ${({ theme }) => theme.background};
   align-items: center;
@@ -79,6 +78,8 @@ const lightTheme = {
   buttonText: white,
   buttonHover: '#ab47bc', // slightly lighter purple
   watermark: '#00000033',
+  sidebarBg: '#e8cfeb',
+  playerBg: '#fff7ec',
 };
 
 const darkTheme = {
@@ -94,4 +95,6 @@ const darkTheme = {
   buttonText: white,
   buttonHover: '#ab47bc',
   watermark: '#ffffff1f',
+  sidebarBg: '#4444443b',
+  playerBg: '#2f2f2f'
 };
